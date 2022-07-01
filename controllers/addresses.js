@@ -20,7 +20,7 @@ const getStreetName = (req, res) => {
 };
 
 const getZip = (req, res) => {
-  let firstName = req.params.zipcode;
+  let firstName = req.params.zip;
   let sql = "SELECT * FROM ?? WHERE ?? = ?";
 
   sql = mysql.format(sql, (err, rows) => {
