@@ -2,16 +2,15 @@ const mysql = require("mysql");
 const pool = require("../mysql/connection.js");
 const { handleSQLError } = require("../mysql/error.js");
 
-const getEmployees = (req, res) => {
-  //get all employees
-  pool.query("SELECT * FROM employees", (err, rows) => {
+const getAddress = (req, res) => {
+  pool.query("SELECT * FROM addresses", (err, rows) => {
     if (err) return handleSQLError(res, err);
     return res.json(rows);
   });
 };
 
-const getEmployeesById = (req, res) => {
-  let id = req.params.employee_id;
+const getStreetName = (req, res) => {
+  let id = req.params.street;
   let sql = "SELECT * FROM ?? WHERE ?? = ?";
 
   sql = mysql.format(sql, (err, rows) => {
@@ -20,11 +19,9 @@ const getEmployeesById = (req, res) => {
   });
 };
 
-const getEmployeesByFirstName = (req, res) => {
-  let { first_name } = req.params.first_name;
+const getZip = (req, res) => {
+  let firstName = req.params.zipcode;
   let sql = "SELECT * FROM ?? WHERE ?? = ?";
-
-  sql = mysql.format(sql, ["employees", "first_name", first_name]);
 
   sql = mysql.format(sql, (err, rows) => {
     if (err) return handleSQLError(res, err);
@@ -32,4 +29,4 @@ const getEmployeesByFirstName = (req, res) => {
   });
 };
 
-module.exports = { getEmployees, getEmployeesById, getEmployeesByFirstName };
+module.exports = { getAddress, getStreetName, getZip };
