@@ -36,7 +36,7 @@ const getDepartmentByName = (req, res) => {
 };
 
 module.exports = {
-  getDepartemnts,
-  getDepartemntsId,
-  getDepartemntsByName,
+  getDepartments,
+  getDepartmentsId,
+  getDepartmentByName,
 };
