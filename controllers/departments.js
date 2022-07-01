@@ -10,7 +10,7 @@ const getDepartments = (req, res) => {
   });
 };
 
-const get = (req, res) => {
+const getDepartmentsId = (req, res) => {
   // SELECT USERS WHERE ID = <REQ PARAMS ID>
   let id = req.params.id;
   let sql = "SELECT * FROM ?? WHERE ?? = ?";
@@ -23,6 +23,20 @@ const get = (req, res) => {
   });
 };
 
+const getDepartmentByName = (req, res) => {
+  let { department_name } = req.params.first_name;
+  let sql = "SELECT * FROM ?? WHERE ?? = ?";
+
+  sql = mysql.format(sql, ["employees", "first_name", department_name]);
+
+  sql = mysql.format(sql, (err, rows) => {
+    if (err) return handleSQLError(res, err);
+    return res.json(rows);
+  });
+};
+
 module.exports = {
   getDepartemnts,
+  getDepartemntsId,
+  getDepartemntsByName,
 };

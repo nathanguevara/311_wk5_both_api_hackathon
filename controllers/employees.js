@@ -21,7 +21,7 @@ const getEmployeesById = (req, res) => {
 };
 
 const getEmployeesByFirstName = (req, res) => {
-  let firstName = req.params.first_name;
+  let { first_name } = req.params.first_name;
   let sql = "SELECT * FROM ?? WHERE ?? = ?";
 
   sql = mysql.format(sql, ["employees", "first_name", first_name]);
