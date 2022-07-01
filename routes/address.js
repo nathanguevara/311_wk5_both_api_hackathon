@@ -4,8 +4,8 @@ const router = express.Router();
 
 router.get("/", employeesController.getAddress);
 
-router.get("/:id", employeesController.getStreetName);
+router.get("/:street", employeesController.getStreetName);
 
-router.get("/:first_name", employeesController.getZip);
+router.get("/:zip", employeesController.getZip);
 
 module.exports = router;
