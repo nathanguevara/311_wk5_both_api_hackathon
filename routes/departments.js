@@ -1,11 +1,11 @@
 const express = require("express");
-const usersController = require("../controllers/departments");
+const employeesController = require("../controllers/departments");
 const router = express.Router();
 
-router.get("/", usersController.getAllUsers);
+router.get("/", employeesController.getAllUsers);
 
-router.get("/:id", usersController.getUserById);
+router.get("/:id", employeesController.getUserById);
 
-router.get("/:first_name", usersController.getUserByFirstName);
+router.get("/:first_name", employeesController.getUserByFirstName);
 
 module.exports = router;
