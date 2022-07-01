@@ -23,8 +23,8 @@ const getDepartmentsId = (req, res) => {
   });
 };
 
-const getDepartmentByName = (req, res) => {
-  let { department_name } = req.params.first_name;
+const getDepartmentsByName = (req, res) => {
+  let { department_name } = req.params.department_name;
   let sql = "SELECT * FROM ?? WHERE ?? = ?";
 
   sql = mysql.format(sql, ["employees", "first_name", department_name]);
@@ -38,5 +38,5 @@ const getDepartmentByName = (req, res) => {
 module.exports = {
   getDepartments,
   getDepartmentsId,
-  getDepartmentByName,
+  getDepartmentsByName,
 };
