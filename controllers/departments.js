@@ -1,6 +1,6 @@
 const mysql = require("mysql");
-const pool = require("../sql/connection");
-const { handleSQLError } = require("../sql/error");
+const pool = require("../mysql/connection.js");
+const { handleSQLError } = require("../mysql/error.js");
 
 const getDepartments = (req, res) => {
   // SELECT ALL USERS
