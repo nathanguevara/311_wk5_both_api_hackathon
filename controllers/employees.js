@@ -11,22 +11,26 @@ const getEmployees = (req, res) => {
 };
 
 const getEmployeesById = (req, res) => {
+  console.log(req.params.employee_id);
   let id = req.params.employee_id;
   let sql = "SELECT * FROM ?? WHERE ?? = ?";
 
-  sql = mysql.format(sql, (err, rows) => {
+  sql = mysql.format(sql, ["employees", "employee_id", id]);
+  pool.query(sql, (err, rows) => {
     if (err) return handleSQLError(res, err);
     return res.json(rows);
   });
 };
 
 const getEmployeesByFirstName = (req, res) => {
-  let { first_name } = req.params.first_name;
+  console.log("inside get Employees route");
+  console.log(req.params.first_name);
+  let { first_name } = req.params;
   let sql = "SELECT * FROM ?? WHERE ?? = ?";
 
   sql = mysql.format(sql, ["employees", "first_name", first_name]);
 
-  sql = mysql.format(sql, (err, rows) => {
+  pool.query(sql, (err, rows) => {
     if (err) return handleSQLError(res, err);
     return res.json(rows);
   });
