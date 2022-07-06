@@ -2,10 +2,10 @@ const express = require("express");
 const addressesController = require("../controllers/addresses");
 const router = express.Router();
 
-router.get("/", employeesController.getAddress);
+router.get("/", addressesController.getAddress);
 
-router.get("/:id", employeesController.getStreetName);
+router.get("/:street", addressesController.getStreetName);
 
-router.get("/:first_name", employeesController.getZip);
+router.get("/:zip", addressesController.getZip);
 
 module.exports = router;
